@@ -3,12 +3,9 @@ import Link from "next/link";
 import { Price } from "@/components/atoms/Price/Price";
 import type { Product } from "../../types/types";
 import styles from "./ProductCard.module.css";
+import { AddToCartButton } from "@/components/molecules/AddToCartButton/AddToCartButton";
 
-interface ProductCardProps {
-  product: Product;
-}
-
-export const ProductCard = ({ product }: ProductCardProps) => {
+export const ProductCard = ({ product }: { product: Product }) => {
   const hasPromotion =
     product.promotion != null && product.promotion.percentage > 0;
 
@@ -30,6 +27,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
             <span className={styles.badgeName}>{product.promotion?.name}</span>
           </span>
         )}
+        <AddToCartButton />
       </div>
 
       <div className={styles.content}>

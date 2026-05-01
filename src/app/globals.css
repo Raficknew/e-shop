@@ -20,6 +20,9 @@ a {
   --color-badge: #e53935;
   --color-badge-text: #fff;
   --color-shadow: rgba(0, 0, 0, 0.1);
+  --color-button: #1976d2;
+  --color-button-hover: #1565c0;
+  --color-button-text: #fff;
 
   background-color: var(--color-background);
   font-family: var(--font-figtree), sans-serif;
