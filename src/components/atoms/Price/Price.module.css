@@ -1,0 +1,24 @@
+.priceRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.price {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-price);
+}
+
+.originalPrice {
+  font-size: 14px;
+  color: var(--color-text-disabled);
+  text-decoration: line-through;
+}
+
+.discountedPrice {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-price);
+}
