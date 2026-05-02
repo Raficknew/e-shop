@@ -1,9 +1,9 @@
 "use client";
 import { ShoppingCart02Icon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
-import styles from "./CartIcon.module.css";
-import { useCart } from "@/context/CartContext";
 import Link from "next/link";
+import { useCart } from "@/context/CartContext";
+import styles from "./CartIcon.module.css";
 
 export const CartIcon = () => {
   const { itemCount } = useCart();

@@ -1,18 +1,25 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Price } from "@/components/atoms/Price/Price";
+import { ProductImage } from "@/components/atoms/ProductImage/ProductImage";
+import { AddToCartButton } from "@/components/molecules/AddToCartButton/AddToCartButton";
 import type { Product } from "../../types/types";
 import styles from "./ProductCard.module.css";
-import { AddToCartButton } from "@/components/molecules/AddToCartButton/AddToCartButton";
 
 export const ProductCard = ({ product }: { product: Product }) => {
   const hasPromotion =
     product.promotion != null && product.promotion.percentage > 0;
 
   return (
-    <Link href={`/products/${product.articleNumber}`} className={styles.card}>
+    <article className={styles.card}>
+      <Link
+        href={`/products/${product.articleNumber}`}
+        className={styles.cardLink}
+        aria-label={product.title}
+      />
+
       <div className={styles.imageWrapper}>
-        <Image
+        <ProductImage
           src={product.image.url}
           alt={product.image.altText}
           fill
@@ -50,6 +57,6 @@ export const ProductCard = ({ product }: { product: Product }) => {
           promotion={product.promotion ?? undefined}
         />
       </div>
-    </Link>
+    </article>
   );
 };

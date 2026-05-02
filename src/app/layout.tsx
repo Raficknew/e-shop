@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Figtree } from "next/font/google";
 import "./globals.css";
-import { Header } from "@/components/organisms/Header/Header";
 import { CartProvider } from "@/context/CartContext";
 
 const figtree = Figtree({
@@ -22,10 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={figtree.variable}>
       <body>
-        <CartProvider>
-          <Header />
-          {children}
-        </CartProvider>
+        <CartProvider>{children}</CartProvider>
       </body>
     </html>
   );

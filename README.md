@@ -1,36 +1,36 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Why this or that?
 
-## Getting Started
+1. I decided to create also pages for cart and product details page. This approach i used a lot in my projects, thats how i would structure it when i would move further with this project
+2. I decided for simple CSS Modules because they are easy to read, scoped by default, have zero runtime cost and don't require any extra setup. CSS-in-JS would also work well for this type of project but taking the scope into consideration i went for modules because of simplicity
+3. Normally i would store header in one place in layout.tsx to have it in every page but i needed to fetch logo from the REST API. Layouts persist across navigations and shouldn't make API calls, so the header is rendered by the page that owns the data
+4. Context is quite handy here instead of global state (thats probably what i would be using in production environment). The cart uses a fake async request to simulate real API behavior with loading states rather than just incrementing a counter synchronously
+5. I asked AI for the fallback image to not create my own for the wrongly fetched images. ProductImage is a separate client component to isolate the onError fallback logic so ProductCard doesn't need "use client"
+6. I added basic error handling for page and requests
+7. I wanted to do a mock fetch API request to be a lot similar to what REST API would look like, but in production i would use some library to fetch from external APIs - probably axios or react-query
+8. Components are organized using atomic design (atoms, molecules, organisms, features) to keep responsibilities clear and components reusable - my common approach and components releated to features are stored under the feature folder
 
-First, run the development server:
+## How to run locally
+
+1. Install dependencies:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Create a `.env` file based on the template:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+cp .env.template .env
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+3. Add your API key to `.env`:
 
-## Learn More
+```
+API_KEY=your_api_key_here
+```
 
-To learn more about Next.js, take a look at the following resources:
+4. Run the development server:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+pnpm dev
+```

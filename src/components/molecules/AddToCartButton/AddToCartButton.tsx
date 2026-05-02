@@ -1,16 +1,15 @@
 "use client";
+import { Add01Icon } from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
 import { useState } from "react";
 import { useCart } from "@/context/CartContext";
 import styles from "./AddToCartButton.module.css";
-import { HugeiconsIcon } from "@hugeicons/react";
-import { Add01Icon } from "@hugeicons/core-free-icons";
 
 export const AddToCartButton = () => {
   const { addToCart } = useCart();
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleClick = async (e: React.MouseEvent) => {
-    e.preventDefault();
+  const handleClick = async () => {
     if (isLoading) return;
 
     setIsLoading(true);
