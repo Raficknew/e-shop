@@ -11,7 +11,7 @@ const figtree = Figtree({
 
 export const metadata: Metadata = {
   title: "E-SHOP",
-  description: "Your favorurite shop around the globe",
+  description: "Your favourite shop around the globe",
 };
 
 export default function RootLayout({

@@ -4,10 +4,12 @@ import styles from "./ProductList.module.css";
 
 export const ProductList = ({ products }: { products: Product[] }) => {
   return (
-    <div className={styles.productList}>
+    <ul className={styles.productList}>
       {products.map((product) => (
-        <ProductCard key={product.articleNumber} product={product} />
+        <li key={product.articleNumber}>
+          <ProductCard product={product} />
+        </li>
       ))}
-    </div>
+    </ul>
   );
 };
